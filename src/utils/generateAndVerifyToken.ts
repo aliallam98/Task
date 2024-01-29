@@ -9,7 +9,7 @@ interface TokenOptions {
 export const generateToken = ({
   payload = {},
   signature = process.env.TOKEN_SIGNATURE,
-  expiresIn = 60 * 60,
+  expiresIn = 60 * 60 * 24 * 7,
 }: TokenOptions): string => {
   const token = jwt.sign(payload , signature!, { expiresIn });
   return token;

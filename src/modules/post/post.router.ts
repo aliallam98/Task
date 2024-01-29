@@ -13,7 +13,7 @@ router
   .route("/")
   .get(postController.getAllPosts)
   .post(
-    auth(endpoint.user),
+    auth(endpoint.both),
     validation(postValidators.createNewPost),
     postController.addNewPost
   );

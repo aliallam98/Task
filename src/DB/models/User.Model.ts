@@ -13,6 +13,7 @@ export interface IUser extends Document {
   confirmEmail: boolean;
   isDeleted: boolean;
   role: "User" | "Admin" | "Super-Admin";
+  permissions: String[]
   OTP: {OTPCode:string, expireDate:Date}; // Optional field
   OTPNumber: number;
 
@@ -34,6 +35,7 @@ const userSchema = new Schema(
       enum: ["User","Admin","Super-Admin"],
       default: "User",
     },
+    permissions: [String],
     OTP: {OTPCode:String,expireDate:Date},
     OTPNumber: {
       type: Number,
@@ -51,3 +53,4 @@ const userSchema = new Schema(
 const userModel = model<IUser>("User", userSchema);
 
 export default userModel;
+

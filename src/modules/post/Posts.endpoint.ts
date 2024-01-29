@@ -1,6 +1,6 @@
-import { roles } from "../../middleware/auth";
+import { AvalibleRoles } from "../../middleware/auth";
 export const endpoint = {
-    user: [roles.user],
-    admins:[roles.admin,roles.superAdmin],
-    both:[roles.admin,roles.superAdmin,roles.user]
+    user: [AvalibleRoles.user],
+    admins:[AvalibleRoles.admin,AvalibleRoles.superAdmin],
+    both:[AvalibleRoles.admin,AvalibleRoles.superAdmin,AvalibleRoles.user]
 };

@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import authRouter from "./modules/auth/auth.router";
 import userRouter from "./modules/user/user.router";
+import adminRouter from "./modules/permission/permission.router";
 import postRouter from "./modules/post/post.router";
 import connectToDB from "./DB/connection";
 import { globalErrorHandling } from "./utils/errorHandling";
@@ -17,6 +18,7 @@ app.use(cors());
 app.get("/", (_, res: Response) => res.json({ message: "Home Page" }));
 app.use(`/auth`, authRouter);
 app.use(`/user`, userRouter);
+app.use(`/admin`, adminRouter);
 app.use(`/post`, postRouter);
 app.all("*", (_, res: Response) => {
   res.send("In-valid Routing Please Check Url Or Method");
